@@ -52,7 +52,7 @@ steps {
 script {
     def App= APPLICATION.toLowerCase()
      DEPLOY_TAG=BUILD_NUMBER
-       sh"helm upgrade --install  -f ../java-application/values.yaml test . -n hotel"
+       sh"helm upgrade --install  -f java-application/values.yaml test . -n hotel"
         }
 }
 }
