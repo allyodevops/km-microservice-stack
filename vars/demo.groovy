@@ -53,7 +53,7 @@ script {
     def App= APPLICATION.toLowerCase()
      DEPLOY_TAG=BUILD_NUMBER
         sh"pwd"
-        sh"helm upgrade --install  -f java-application/values.yaml test . -n hotel --set image.tag=${BUILD_NUMBER}"
+        sh"helm upgrade --install  -f ../java-application/values.yaml test . -n hotel --set image.tag=${BUILD_NUMBER}"
         }
 }
 }
