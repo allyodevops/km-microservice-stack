@@ -12,7 +12,7 @@ agent any
 
 environment {
 APPLICATION="trivagi"
-ENVVIRONMENT="dev"
+ENVIRONMENT="dev"
 AWS_DEFAULT_REGION="us-east-2"
 }
 
@@ -52,8 +52,7 @@ steps {
 script {
     def App= APPLICATION.toLowerCase()
      DEPLOY_TAG=BUILD_NUMBER
-     sh "/var/lib/jenkins/bin/kubectl apply -f /var/lib/jenkins/infra-config/services/applications/${ENVIRONMENT}/${App}.yaml"
-     sh "/var/lib/jenkins/bin/kubectl rollout status deployment/${App} --timeout 180s -n ${ENVIRONMENT}"
+       sh"helm upgrade --install  -f ../java-application/values.yaml test . -n hotel"
         }
 }
 }
